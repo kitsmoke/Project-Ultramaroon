@@ -1,0 +1,3 @@
+This project is modified off Ultraviolet and Luminite changes can be found in changes.txt
+Ultraviolet’s license can be found in Uvlicense.txt <AGPL-3.0> (Credit to Ultraviolet) https://github.com/titaniumnetwork-dev/Ultraviolet
+Luminite’s license can be found in Lnlicense.txt <GPL-3.0-or-later> (Credit to Lunadox) https://github.com/Lunadox-Dev/Luminite

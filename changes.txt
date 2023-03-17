@@ -1,0 +1,3 @@
+changed index.mjs to index.js and deleted index.mjs changed readme.md to say changed
+replaced node-static with express since node-static depends on vulnerable npm packages 
+moved the js files in static to the js folder
