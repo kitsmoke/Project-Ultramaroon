@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+
+
+.search {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.navbar {
+    background-color: black;
+    width: 32.5%;
+    height: 40px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid blue;
+    text-align: center;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    top: 5px;
+    position: fixed;
+}
+h1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 60px;
+    background: linear-gradient(45deg,black,gold,red,purple,pink,blue,cyan,magenta,green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+
+    -webkit-animation: rainbowanim 10s ease infinite;
+    -moz-animation: rainbowanim 10s ease infinite;
+    animation: rainbowanim 10s ease infinite;
+  }
+  @-webkit-keyframes rainbowanim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @-moz-keyframes rainbowanim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @keyframes rainbowanim { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+a, button {
+    font-size: 20px;
+    border: 0px;
+    background: transparent;
+    cursor: pointer;
+    transition: all .2s ease-in-out; 
+} 
+a, button:hover { 
+    transform: scale(1.1); 
+}
+
+
+body {
+    background-image: url('../assets/abstract.jpg');
+    font-family: 'Ubuntu', sans-serif;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+input {
+    color: white;
+    border: 1px purple;
+    background-color: #00001D;
+    font-size: 15px;
+    width: 275px;
+    height: 5px;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.hidden{
+  display: none;
+  
+}
+

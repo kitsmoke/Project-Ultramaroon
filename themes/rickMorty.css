@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+
+
+.search {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.navbar {
+    background-color: purple;
+    width: 32.5%;
+    height: 40px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid black;
+    text-align: center;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    top: 5px;
+    position: fixed;
+}
+h1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 60px;
+    background: linear-gradient(45deg,#c700dd,#dd84ff,#640055);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+
+    -webkit-animation: rainbowanim 10s ease infinite;
+    -moz-animation: rainbowanim 10s ease infinite;
+    animation: rainbowanim 10s ease infinite;
+  }
+  @-webkit-keyframes rainbowanim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @-moz-keyframes rainbowanim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @keyframes rainbowanim { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+a, button {
+    font-size: 20px;
+    border: 0px;
+    background: transparent;
+    cursor: pointer;
+    transition: all .2s ease-in-out; 
+} 
+a, button:hover { 
+    transform: scale(1.1); 
+}
+
+
+body {
+    background-image: url('https://wallpaperboat.com/wp-content/uploads/2019/04/rick-and-morty-wallpaper-portal-wallpaper-007.jpg');
+    font-family: 'Ubuntu', sans-serif;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  position: top;
+  width: 100%;
+  length: 60;
+    
+}
+
+
+
+input {
+    color: black;
+    border: 1px lightgreen;
+    background-color: darkgreen;
+    font-size: 15px;
+    width: 275px;
+    height: 5px;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.hidden{
+  display: none;
+  
+}
+

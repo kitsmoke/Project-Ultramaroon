@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ultramaroon Proxy</title>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#00001D">
+    <meta property="og:description" content="Math for free online">
+    <base href="/">
+    <link rel="stylesheet" href="./styles/set.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="icon" href="assets/ultramaroon.ico" id='icon'>
+      <script src="./js/main.js"></script>
+    <link rel="stylesheet" id="cssOverrides" href="./default.css">
+</head>
+<body>
+    <div id="settingsWindow" class="hidden" style="height: 325px; width: 300px;">
+      <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+      <div id="settingsWindowheader">Settings</div>
+      <p id="theme_text" >Theme the app will use</p>
+            <form>
+                <select id="theme" name="theme" onchange="handleThemeSelectChange(this)">
+                    <option value="default">Default</option> 
+                    <option value="neondark" >old theme</option>
+                    <option value="flatlight">rainbow</option>
+                    <option value="rickMorty">rick and morty</option>
+                </select>
+                
+            </form>
+            <br/>
+        <button id='cloak'>CLOAK</button>
+        <button id="closeButton" onclick="handleSettingsClose(this)">Done</button>
+    </div>
+    <nav class="navbar">
+        <a href="">
+            <button>
+                <img src="./assets/home.png" width="40" height="40">
+            </button>
+        </a>
+        <a href="./about.html">
+            <button>
+                <img src="assets/ultramaroon.ico" width="40" height="40">
+            </button>
+        </a>
+        <a onclick="handleSettings()">
+            <button>
+                <img src="assets/settings.png" width="40" height="40">
+            </button>
+        </a>
+        <a href="http://discord.gg/jzeHjnq5p9">
+            <button> <img src="./assets/discord.png" width ="40" height="40"> </button>
+        </a>
+            <button> <img src="./assets/gg.png" width ="40" height="40" id ="gg"> </button>
+    </nav>
+      <div class="search" id="uv_search">
+        <h1>Ultramaroon Proxy</h1>
+            <form>
+                <input placeholder="ITS TIME TO G-G-G-G-GOOGLE" id="uv_input">
+                <script src="./uv/uv.bundle.js"></script>
+                <script src="./uv/uv.config.js"></script>
+                <script src="./js/index.js"></script>
+        </form>
+    </div>
+  <script>
+    var urlObj = new window.URL(window.location.href);
+      var url = "https://greatshot101.repl.co/";
+      if (url) {
+        var win;
+ 
+        document.getElementById('gg').onclick = function() {
+          if (win) {
+            win.focus();
+          } else {
+            win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = url;
+            win.document.title = "Google Docs";
+            win.document.body.appendChild(iframe);
+          }
+          document.querySelector('button').style.bacground = 'grey';
+          document.querySelector('button').innerHTML = "Play Now";
+        };
+      }
+  </script>
+<script>
+  document.getElementById('cloak').onclick = function() {
+   document.getElementsByTagName('title')[0].innerHTML = 'Google Docs';
+    document.querySelector("link[rel*='icon']").href = "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
+};
+</script>
+</body>
+    <script>
+        loadDefTheme()
+    </script>
+</html>
