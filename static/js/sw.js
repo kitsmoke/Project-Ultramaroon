@@ -1,4 +1,4 @@
-importScripts('../uv/uv.sw.js');
+importScripts('https://cdn.jsdelivr.net/gh/greatshot101/Project-Ultramaroon/static/uv/uv.sw.js');
 
 const sw = new UVServiceWorker();
 
