@@ -1,5 +1,5 @@
-importScripts('https://cdn.jsdelivr.net/gh/greatshot101/Project-Ultramaroon/static/uv/uv.bundle.js');
-importScripts('https://cdn.jsdelivr.net/gh/greatshot101/Project-Ultramaroon/static/uv/uv.config.js');
+importScripts('/uv.bundle.js');
+importScripts('/uv.config.js');
 
 class UVServiceWorker extends EventEmitter {     
     constructor(config = __uv$config) {
