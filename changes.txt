@@ -1,3 +1,5 @@
 changed index.mjs to index.js and deleted index.mjs changed readme.md to say changed
 replaced node-static with express since node-static depends on vulnerable npm packages 
 moved the js files in static to the js folder
+updated the uv files and the js files to use the correct paths
+updated package.json so it doesnt say anything related to uv
