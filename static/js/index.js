@@ -5,7 +5,7 @@ const input = document.getElementById('uv_input')
 
 form.addEventListener('submit', async event => {
     event.preventDefault();
-    window.navigator.serviceWorker.register('https://cdn.jsdelivr.net/gh/greatshot101/Project-Ultramaroon/static/js/sw.js', {
+    window.navigator.serviceWorker.register('/sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
         let url = input.value.trim();
