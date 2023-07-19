@@ -1,100 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Ultramaroon Proxy</title>
+    <!-- Meta stuff -->
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#00001D">
-    <meta property="og:description" content="Math for free online">
-    <base href="/">
-    <link rel="stylesheet" href="./styles/set.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="icon" href="assets/ultramaroon.ico" id='icon'>
-      <script src="./js/main.js"></script>
-    <link rel="stylesheet" id="cssOverrides" href="./default.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ultraviolet is a highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers. Unblock sites today!" />
+    <meta name="keywords" content="proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked, Landon Orr proxy ultraviolet">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e">
+    <meta name="googlebot" content="index, follow, snippet" />
+    
+    <link href="css/index.css" rel="stylesheet">
+    <link rel="icon" href="https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico">
+
+    <title>Canvas</title>
 </head>
 <body>
-    <div id="settingsWindow" class="hidden" style="height: 325px; width: 300px;">
-      <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
-      <div id="settingsWindowheader">Settings</div>
-      <p id="theme_text" >Theme the app will use</p>
+    <div id="modalCover" class="hidden"></div>
+
+    <div id="infoModal" class="modal hidden">
+        <div class="modalHeader"> <p>Information</p> </div>
+
+        <div class="modalBody">
+            <p>totally only made by Nostalgia3. Nobody else helped nad im the only person who did this</p>
+        </div>
+
+        <div class="modalFooter">
+            <button class="modalButton" id="settingsModalCloseButton" onclick="closeInfoModal()">Close</button>
+        </div>
+    </div>
+
+    <div id="settingsModal" class="modal hidden">
+        <div class="modalHeader"> <p>Settings</p> </div>
+
+        <div class="modalBody">
+            <p class="modalTitle">Theme</p>
+
             <form>
-                <select id="theme" name="theme" onchange="handleThemeSelectChange(this)">
-                    <option value="default">Default</option> 
-                    <option value="neondark" >old theme</option>
-                    <option value="flatlight">rainbow</option>
-                    <option value="rickMorty">rick and morty</option>
+                <select id="theme" name="theme" onchange="themeSelectChange()">
+                    <option value="nosprox">Nosprox</option> 
+                    <option value="classic">Classic</option>
+                    <option value="rickMorty">Rick And Morty</option>
                 </select>
-                
             </form>
-            <br/>
-        <button id='cloak'>CLOAK</button>
-        <button id="closeButton" onclick="handleSettingsClose(this)">Done</button>
+            
+            <br>
+        </div>
+
+        <div class="modalFooter">
+            <button class="modalButton" onclick="enableCloak()">Cloak</button>
+            <button class="modalButton" onclick="closeSettingsModal()">Close</button>
+        </div>
     </div>
+
+    <div class="logoWrapper">
+        <div class="icoTitle">
+            <img src="./img/logo-old.png" alt="Nosprox Logo" width=150 height="150">
+            <span>Project Nosprox</span>
+        </div>
+        
+        <input placeholder="Search the web freely" id="searchbar">
+        <br>
+        <input type="button" value="Search" onclick="search()">
+    </div>
+
     <nav class="navbar">
-        <a href="">
-            <button>
-                <img src="./assets/home.png" width="40" height="40">
-            </button>
-        </a>
-        <a href="./about.html">
-            <button>
-                <img src="assets/ultramaroon.ico" width="40" height="40">
-            </button>
-        </a>
-        <a onclick="handleSettings()">
-            <button>
-                <img src="assets/settings.png" width="40" height="40">
-            </button>
-        </a>
-        <a href="http://discord.gg/jzeHjnq5p9">
-            <button> <img src="./assets/discord.png" width ="40" height="40"> </button>
-        </a>
-            <button> <img src="./assets/gg.png" width ="40" height="40" id ="gg"> </button>
+        <a onclick="openInfoModal()"> <i class="bi bi-info-circle-fill navbarIcon"></i> </a>
+        <a href="https://discord.gg/NaJqGBmAuG"> <i class="bi bi-discord navbarIcon"></i> </a>
+        <a onclick="openSettingsModal()"> <i class="bi bi-gear-fill navbarIcon"></i> </a>
     </nav>
-      <div class="search" id="uv_search">
-        <h1>Ultramaroon Proxy</h1>
-            <form>
-                <input placeholder="ITS TIME TO G-G-G-G-GOOGLE" id="uv_input">
-                <script src="./uv/uv.bundle.js"></script>
-                <script src="./uv/uv.config.js"></script>
-                <script src="./js/index.js"></script>
-        </form>
-    </div>
-  <script>
-    var urlObj = new window.URL(window.location.href);
-      var url = "https://greatshot101.repl.co/";
-      if (url) {
-        var win;
- 
-        document.getElementById('gg').onclick = function() {
-          if (win) {
-            win.focus();
-          } else {
-            win = window.open();
-            win.document.body.style.margin = '0';
-            win.document.body.style.height = '100vh';
-            var iframe = win.document.createElement('iframe');
-            iframe.style.border = 'none';
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.margin = '0';
-            iframe.src = url;
-            win.document.title = "Google Docs";
-            win.document.body.appendChild(iframe);
-          }
-          document.querySelector('button').style.bacground = 'grey';
-          document.querySelector('button').innerHTML = "Play Now";
-        };
-      }
-  </script>
-<script>
-  document.getElementById('cloak').onclick = function() {
-   document.getElementsByTagName('title')[0].innerHTML = 'Google Docs';
-    document.querySelector("link[rel*='icon']").href = "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
-};
-</script>
+
+    <script src="uv/uv.bundle.js"></script>
+    <script src="uv/uv.config.js"></script>
+    <script src="index.js"></script>
 </body>
-    <script>
-        loadDefTheme()
-    </script>
 </html>

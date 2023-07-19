@@ -1,46 +1,19 @@
-import createServer from '@tomphttp/bare-server-node';
-import http from 'http';
 import express from 'express'
 import path from 'path'
 import * as url from 'url';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
-const bare = createServer('/bare/');
-const app = express().use(express.static(path.join(__dirname, '/static')))
-const server = http.createServer();
 
-app.use((err, req, res, next) => {
-    console.error(err.stack)
-    res.status(500).send('Something broke!')
-})
+const app = express();
 
-app.get('/', (req, res) => {
-    res.sendFile('/static/index.html')
-})
-app.use(express.static(path.join(__dirname, '/themes')))
-server.on('request', (req, res) => {
-    if (bare.shouldRoute(req)) {
-        bare.routeRequest(req, res);
-    } else {
-        try {
-            app(req, res)
-        } catch (err) {
-            console.error(err)
-            console.error("File was not found")
-        }
-    }
+// Static path so stuff will work
+app.use(express.static(path.join(__dirname, 'static')));
+
+app.get('/', (req,res) => {
+	res.sendFile(path.join(__dirname, 'static/index.html'));
 });
 
-server.on('upgrade', (req, socket, head) => {
-    if (bare.shouldRoute(req, socket, head)) {
-        bare.routeUpgrade(req, socket, head);
-    } else {
-        socket.end();
-    }
+app.listen(process.env.PORT || 9090, () => {
+	console.log('Friendly reminder, the port is: ' + (process.env.PORT || 9090) + ', not 3030 (or maybe it is. You never know 👀)');
 });
-
-server.listen({
-    port: process.env.PORT || 9090,
-});
-
